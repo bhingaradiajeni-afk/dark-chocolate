@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Veluora Chocolates</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Georgia", serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #fff8f1;
+      color: #3b1712;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(59, 23, 18, 0.96);
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: #f7d7a8;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #e8b66b;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 20px 60px;
+      background:
+        linear-gradient(rgba(45, 12, 8, 0.68), rgba(45, 12, 8, 0.68)),
+        radial-gradient(circle at center, #8c4a2f, #2d0c08);
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 9vw, 105px);
+      color: #f8d7a6;
+      letter-spacing: 5px;
+      margin-bottom: 15px;
+    }
+
+    .hero h2 {
+      font-size: 27px;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 650px;
+      margin: auto;
+      color: #f6e7d5;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 32px;
+      background: #d99b4d;
+      color: #35130d;
+      text-decoration: none;
+      border-radius: 30px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #f2c47f;
+      transform: translateY(-3px);
+    }
+
+    /* SECTION */
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      color: #4a1c15;
+    }
+
+    .section-title p {
+      margin-top: 10px;
+      color: #80645a;
+      font-family: Arial, sans-serif;
+    }
+
+    /* PRODUCTS */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(72, 35, 25, 0.12);
+      transition: 0.35s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 18px 35px rgba(72, 35, 25, 0.2);
+    }
+
+    .chocolate-image {
+      height: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 80px;
+    }
+
+    .dark {
+      background: linear-gradient(135deg, #35130d, #6d3422);
+    }
+
+    .milk {
+      background: linear-gradient(135deg, #8c5637, #d59c67);
+    }
+
+    .white {
+      background: linear-gradient(135deg, #f5e5c8, #fff8e9);
+    }
+
+    .berry {
+      background: linear-gradient(135deg, #651c32, #d05b78);
+    }
+
+    .card-content {
+      padding: 23px;
+    }
+
+    .card-content h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .card-content p {
+      font-family: Arial, sans-serif;
+      color: #765c53;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .price {
+      margin-top: 18px;
+      color: #a65d26;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* ABOUT */
+    .about {
+      background: #3d1812;
+      color: white;
+    }
+
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: 45px;
+      color: #f3c986;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-family: Arial, sans-serif;
+      line-height: 1.9;
+      color: #eadbd0;
+      margin-bottom: 15px;
+    }
+
+    .about-box {
+      border: 1px solid #a56b42;
+      padding: 45px;
+      text-align: center;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .about-box span {
+      font-size: 75px;
+    }
+
+    .about-box h3 {
+      color: #f3c986;
+      font-size: 28px;
+      margin: 15px 0;
+    }
+
+    /* FEATURES */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 35px 20px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(72, 35, 25, 0.08);
+    }
+
+    .feature-icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      font-family: Arial, sans-serif;
+      color: #765c53;
+      line-height: 1.6;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #f2dfca;
+    }
+
+    .contact-container {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: none;
+      padding: 16px;
+      border-radius: 10px;
+      font-family: Arial, sans-serif;
+      outline: none;
+      background: white;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 30px;
+      background: #5b2419;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #9a512e;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #24100c;
+      color: #d9bca5;
+      text-align: center;
+      padding: 35px 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    footer .footer-logo {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      color: #f2c47f;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      nav ul {
+        gap: 12px;
+      }
+
+      nav ul li a {
+        font-size: 12px;
+      }
+
+      section {
+        padding: 65px 5%;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        letter-spacing: 2px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">VELUORA</div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#flavours">Flavours</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+
+      <h1>Veluora</h1>
+
+      <h2>Luxury Crafted Chocolates</h2>
+
+      <p>
+        Indulge in the art of exquisite chocolate making.
+        Discover rich flavours, silky textures and unforgettable
+        moments crafted with passion.
+      </p>
+
+      <a href="#flavours" class="btn">Explore Our Chocolates</a>
+
+    </div>
+  </section>
+
+
+  <!-- FLAVOURS -->
+  <section id="flavours">
+
+    <div class="section-title">
+      <h2>Our Signature Flavours</h2>
+      <p>A little piece of luxury in every bite.</p>
+    </div>
+
+    <div class="products">
+
+      <div class="card">
+        <div class="chocolate-image dark">
+          🍫
+        </div>
+
+        <div class="card-content">
+          <h3>Velvet Dark</h3>
+
+          <p>
+            Intense dark chocolate with deep cocoa notes
+            and a smooth, elegant finish.
+          </p>
+
+          <div class="price">₹499</div>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <div class="chocolate-image milk">
+          🍫
+        </div>
+
+        <div class="card-content">
+          <h3>Golden Milk</h3>
+
+          <p>
+            Creamy milk chocolate blended with caramel
+            for a deliciously smooth experience.
+          </p>
+
+          <div class="price">₹449</div>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <div class="chocolate-image white">
+          🍫
+        </div>
+
+        <div class="card-content">
+          <h3>Vanilla Pearl</h3>
+
+          <p>
+            Luxurious white chocolate infused with
+            delicate vanilla and creamy sweetness.
+          </p>
+
+          <div class="price">₹479</div>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <div class="chocolate-image berry">
+          🍓
+        </div>
+
+        <div class="card-content">
+          <h3>Berry Bliss</h3>
+
+          <p>
+            Silky chocolate combined with vibrant
+            strawberry and raspberry flavours.
+          </p>
+
+          <div class="price">₹529</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="about-container">
+
+      <div>
+        <h2>The Veluora Story</h2>
+
+        <p>
+          Veluora Chocolates was created from a simple idea:
+          transform everyday moments into something extraordinary.
+        </p>
+
+        <p>
+          Every chocolate is carefully crafted with premium
+          ingredients and a passion for beautiful flavours.
+        </p>
+
+        <p>
+          From the first crack of the chocolate shell to the
+          final melt, every bite is designed to feel special.
+        </p>
+
+        <a href="#contact" class="btn">Discover Veluora</a>
+      </div>
+
+      <div class="about-box">
+        <span>🍫</span>
+
+        <h3>Made With Passion</h3>
+
+        <p>
+          Beautiful chocolates. Exceptional flavours.
+          Unforgettable moments.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+  <section>
+
+    <div class="section-title">
+      <h2>Why Veluora?</h2>
+      <p>Because every chocolate deserves to be extraordinary.</p>
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">🌱</div>
+        <h3>Premium Ingredients</h3>
+        <p>
+          Carefully selected ingredients create
+          a rich and memorable taste.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">✨</div>
+        <h3>Handcrafted</h3>
+        <p>
+          Each creation is made with attention
+          to detail and a love for chocolate.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🎁</div>
+        <h3>Perfect For Gifting</h3>
+        <p>
+          Elegant chocolates made for celebrations,
+          surprises and special moments.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="contact-container">
+
+      <div class="section-title">
+        <h2>Order Your Veluora</h2>
+        <p>
+          Tell us what you're craving and we'll get in touch.
+        </p>
+      </div>
+
+      <form class="contact-form" onsubmit="sendMessage(event)">
+
+        <input
+          type="text"
+          id="name"
+          placeholder="Your Name"
+          required
+        >
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Your Email"
+          required
+        >
+
+        <input
+          type="text"
+          id="flavour"
+          placeholder="Favourite Flavour"
+          required
+        >
+
+        <textarea
+          id="message"
+          placeholder="Your message..."
+          required
+        ></textarea>
+
+        <button type="submit">
+          Send Order Request
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-logo">
+      VELUORA CHOCOLATES
+    </div>
+
+    <p>
+      Crafted with cocoa, creativity & love.
+    </p>
+
+    <br>
+
+    <p>
+      © 2026 Veluora Chocolates. All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    function sendMessage(event) {
+
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const flavour = document.getElementById("flavour").value;
+
+      alert(
+        "Thank you, " + name +
+        "! Your request for " + flavour +
+        " has been received."
+      );
+
+      event.target.reset();
+    }
+
+  </script>
+
+</body>
+</html>
